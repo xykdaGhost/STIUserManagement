@@ -1,0 +1,14 @@
+<image
+class="StiLogo"
+  id="sti_logo"
+  mode="widthFix"
+  src="../../pictures/STILogo.png" >
+</image>
+
+
+
+<button
+  class="button"
+  bindtap="onClick">
+  Join us
+</button>
