@@ -1,3 +1,38 @@
 <view class="name">姓名：
   <input></input>
 </view>
+
+
+<view class="sex">性别：
+  <radio-group>
+    <radio class="radio-male">男</radio>
+    <radio class="radio-female">女</radio>
+  </radio-group>
+</view> 
+
+
+
+<view class="department">
+  
+  <view>院系：</view>
+  
+  <view class="department-select">
+  
+    <view class='select' catchtap='selectTap'>
+      
+      <text class='select_text'>{{selectData[index]}}</text>
+      <image class='select_img {{show&&"select_img_rotate"}}' src='/pictures/gobottom.png'></image>         
+    </view>
+    
+    <view class='option_box' style="height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;">
+    
+    <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+  
+    </view>
+  
+  </view>
+</view> 
+
+<view class="phone">电话：
+  <text>13648320468</text>
+</view>
