@@ -34,5 +34,14 @@
 </view> 
 
 <view class="phone">电话：
-  <text>13648320468</text>
+  <view>
+    <text>13648320468</text>
+  </view>
+</view>
+
+<view class="overview" >
+    <text>申请理由:</text>
+  <view>
+    <input></input>
+  </view>
 </view>
