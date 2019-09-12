@@ -1,8 +1,9 @@
+<!-- 姓名栏 -->
 <view class="name">姓名：
   <input></input>
 </view>
 
-
+<!-- 性别栏 -->
 <view class="sex">性别：
   <radio-group>
     <radio class="radio-male">男</radio>
@@ -10,8 +11,7 @@
   </radio-group>
 </view> 
 
-
-
+<!-- 院系栏 -->
 <view class="department">
   
   <view>院系：</view>
@@ -33,15 +33,24 @@
   </view>
 </view> 
 
+<!-- 电话栏 -->
 <view class="phone">电话：
   <view>
     <text>13648320468</text>
   </view>
 </view>
 
+<!-- 简述栏 -->
 <view class="overview" >
     <text>申请理由:</text>
   <view>
-    <input></input>
+    <textarea maxlength="2000"></textarea>
+  </view>
+</view>
+
+<!-- 提交栏 -->
+<view class="submit">
+  <view>
+    <button>提交</button>
   </view>
 </view>

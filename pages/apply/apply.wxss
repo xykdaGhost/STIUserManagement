@@ -132,11 +132,26 @@ page {
 
 .overview view {
   margin-top: 20rpx;
-  padding-r: 60rpx;
   height: 400rpx;
   border: 1px solid #efefef;
 }
 
-.overview view input {
+.overview view textarea {
+  width: auto;
+  padding: 15rpx;
   font-size: 32rpx;
+  height: 400rpx;
+}
+
+.submit {
+  margin-top: 200rpx;
+  width: full;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit view {
+  width: 180rpx;
+
 }
