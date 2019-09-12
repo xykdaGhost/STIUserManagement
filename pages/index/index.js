@@ -5,6 +5,8 @@ const app = getApp()
 Page({
 
   onClick: function() {
-    
+    wx.redirectTo({
+      url: '../apply/apply',
+    })
   }
 })

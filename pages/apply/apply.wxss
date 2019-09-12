@@ -1,0 +1,23 @@
+/* 姓名行 */
+.name{
+  font-size: 42rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+  height: 50rpx;
+
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+}
+
+.name input {
+  width: 400rpx;
+  height: 50rpx;
+  border: 2px solid lightskyblue;
+  border-radius: 25rpx;
+  padding-left: 20rpx;
+}
+
+
+/*  */
