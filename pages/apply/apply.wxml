@@ -1,6 +1,6 @@
 <!-- 姓名栏 -->
 <view class="name">姓名：
-  <input></input>
+  <input value="{{personData.name}}"></input>
 </view>
 
 <!-- 性别栏 -->
@@ -20,7 +20,7 @@
   
     <view class='select' catchtap='selectTap'>
       
-      <text class='select_text'>{{selectData[index]}}</text>
+      <text class='select_text'>{{selectData[personData.department]}}</text>
       <image class='select_img {{show&&"select_img_rotate"}}' src='/pictures/gobottom.png'></image>         
     </view>
     
@@ -36,7 +36,7 @@
 <!-- 电话栏 -->
 <view class="phone">电话：
   <view>
-    <text>13648320468</text>
+    <text>{{personData.phone}}</text>
   </view>
 </view>
 
@@ -44,7 +44,7 @@
 <view class="overview" >
     <text>申请理由:</text>
   <view>
-    <textarea maxlength="2000"></textarea>
+    <textarea maxlength="2000">{{personData.overview}}</textarea>
   </view>
 </view>
 
