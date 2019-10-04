@@ -21,7 +21,7 @@
     <view class='select' catchtap='selectTap'>
       
       <text class='select_text'>{{selectData[personData.department]}}</text>
-      <image class='select_img {{show&&"select_img_rotate"}}' src='/pictures/gobottom.png'></image>         
+      <image class='select_img {{show&&"select_img_rotate"}}' src='/pictures/gobottom.png'></image>        
     </view>
     
     <view class='option_box' style="height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;">

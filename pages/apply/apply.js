@@ -25,8 +25,14 @@ Page({
     let Index = e.currentTarget.dataset.index;//获取点击的下拉列表的下标
     this.setData({
       index: Index,
-      show: !this.data.show
+      show: !this.data.show,
+      
     });
+
+    console.log("this data's Index is : " + Index) //打印当前选项的下标
+    console.log("this data is : " + this.data.selectData[Index])
+    dataObj.personData.department = this.data.selectData[Index]
+    console.log("data's department is : " + dataObj.personData.department)
   },
 
   /**
@@ -35,11 +41,11 @@ Page({
   onLoad: function (options) {
 
     this.setData ({
-      personData:dataObj.personData      
+      personData: dataObj.personData,    
     })
     console.log("apply onLOad ok")
 
-    console.log(personData.name)      //此log会报错 望大佬解决
+   // console.log(personData.name)      //此log会报错 望大佬解决
   },
 
   /**
