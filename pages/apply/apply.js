@@ -28,10 +28,11 @@ Page({
       show: !this.data.show,
       
     });
-
-    console.log("this data's Index is : " + Index) //打印当前选项的下标
-    console.log("this data is : " + this.data.selectData[Index])
-    dataObj.personData.department = this.data.selectData[Index]
+    // console.log("data's department is : " + dataObj.personData.department)
+    // console.log("this data's Index is : " + Index) //打印当前选项的下标
+    // console.log("this data is : " + this.data.selectData[Index])
+    console.log("this.persondata : " + personData)
+    this.personData.department = Index    
     console.log("data's department is : " + dataObj.personData.department)
   },
 
@@ -44,8 +45,8 @@ Page({
       personData: dataObj.personData,    
     })
     console.log("apply onLOad ok")
-
-   // console.log(personData.name)      //此log会报错 望大佬解决
+    // var that = this
+    // console.log(this.personData.name)      //此log会报错 望大佬解决
   },
 
   /**
