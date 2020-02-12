@@ -1,0 +1,7 @@
+class DBPost {
+  setDepartmentId(id) {
+    
+  }
+
+
+}

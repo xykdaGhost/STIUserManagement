@@ -1,10 +1,22 @@
 //app.js
+
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+    var storageData = wx.getStorageSync('userData');
+    if (!storageData) {
+      
+      var dataObj = require("data/data.js")
+    }
+
+
+
+
 
     // 登录
     wx.login({

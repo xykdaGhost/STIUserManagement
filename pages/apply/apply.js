@@ -1,5 +1,5 @@
 // pages/apply/apply.js
-var dataObj = require("../../data.js");
+var dataObj = require("../../data/data.js");
 
 
 Page({
@@ -11,7 +11,8 @@ Page({
   data: {
     show: false,//控制下拉列表的显示隐藏，false隐藏、true显示
     selectData: ['电气学院', '光电学院', '自动化学院', '电信学院', '西边其他学院', '东边其他学院'],//下拉列表的数据
-    index: 0//选择的下拉列表下标
+    index: 0,//选择的下拉列表下标
+    // personDataCache: dataObj.personData
   },
 
   // 点击下拉显示框
@@ -23,17 +24,14 @@ Page({
 
   optionTap(e) {
     let Index = e.currentTarget.dataset.index;//获取点击的下拉列表的下标
+
     this.setData({
       index: Index,
       show: !this.data.show,
-      
     });
-    // console.log("data's department is : " + dataObj.personData.department)
-    // console.log("this data's Index is : " + Index) //打印当前选项的下标
-    // console.log("this data is : " + this.data.selectData[Index])
-    console.log("this.persondata : " + personData)
-    this.personData.department = Index    
-    console.log("data's department is : " + dataObj.personData.department)
+
+     
+
   },
 
   /**
@@ -41,12 +39,11 @@ Page({
    */
   onLoad: function (options) {
 
-    this.setData ({
-      personData: dataObj.personData,    
-    })
     console.log("apply onLOad ok")
-    // var that = this
-    // console.log(this.personData.name)      //此log会报错 望大佬解决
+
+    this.setData({
+      personData: dataObj.personData
+    })
   },
 
   /**

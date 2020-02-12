@@ -4,8 +4,13 @@ class="StiLogo"
   mode="widthFix"
   src="../../pictures/STILogo.png" >
 </image>
-
-
+<view class="usernameView">
+  <input
+    class="username"
+    focus="true"
+    width="100rpx">
+  </input>
+</view>
 
 <button
   class="button"
