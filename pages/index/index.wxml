@@ -1,19 +1,23 @@
 <image
-class="StiLogo"
+  class="StiLogo"
   id="sti_logo"
   mode="widthFix"
   src="../../pictures/STILogo.png" >
 </image>
+
 <view class="usernameView">
-  <input
-    class="username"
-    focus="true"
-    width="100rpx">
-  </input>
+  <input class="username"
+    placeholder="请填写您的学号"></input>
 </view>
+
+<view class="passwordView">
+  <input class="password"
+    placeholder="请填写您的密码"></input>
+</view>
+
 
 <button
   class="button"
   bindtap="onClick">
-  Join us
+  登录/注册
 </button>

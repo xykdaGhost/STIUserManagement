@@ -1,5 +1,6 @@
 Page {
-  text-align: center
+  text-align: center;
+  background: linear-gradient(#ceedff, #fffd39);
 }
 
 .title {
@@ -13,10 +14,43 @@ Page {
 
 .button {
   width: 35%;
-  margin-top: 55%;
+  border-radius: 20rpx;
+  margin-top: 130rpx;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #ffbe7f;
+  -webkit-text-fill-color: #fff;
 }
 
 .usernameView {
-    border: 1px solid #000000
+  display: flex;
+  height: 65rpx;
+  margin-top: 100rpx;
+  margin-left: 90rpx;
+  margin-right: 90rpx; 
+  border: 2px solid #9b9a9a;
+  border-radius: 15rpx;
+  background-color: #ceedff;
+}
+
+.usernameView input {
+  height: 65rpx;
+  font-size: 42rpx;
+  width: 100%;
+}
+
+.passwordView {
+  display: flex;
+  height: 65rpx;
+  margin-top: 40rpx;
+  margin-left: 90rpx;
+  margin-right: 90rpx; 
+  border: 2px solid #9b9a9a;
+  border-radius: 15rpx;
+  background-color: #ceedff;
+}
+
+.passwordView input {
+  height: 65rpx;
+  font-size: 42rpx;
+  width: 100%;
 }
