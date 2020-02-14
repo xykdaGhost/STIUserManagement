@@ -13,6 +13,7 @@ App({
       var dataObj = require("data/data.js")
       wx.clearStorageSync();
       wx.setStorageSync('userData', dataObj.personData)
+
     }
 
 

@@ -1,9 +1,9 @@
 // pages/apply/apply.js
 var dataObj = require("../../data/data.js");
-
+wx.cloud.init()
+const db = wx.cloud.database()
 
 Page({
-
 
   /**
    * 页面的初始数据
@@ -13,6 +13,10 @@ Page({
     selectData: ['电气学院', '光电学院', '自动化学院', '电信学院', '西边其他学院', '东边其他学院'],//下拉列表的数据
     index: 0,//选择的下拉列表下标
     // personDataCache: dataObj.personData
+    items: [
+      { name: 'male', value: '男'},
+      { name: 'female', value: '女'},
+    ]
   },
 
   // 点击下拉显示框
@@ -28,10 +32,44 @@ Page({
     this.setData({
       index: Index,
       show: !this.data.show,
+      'personData.department': Index
     });
+  },
 
-     
+  //性别单选 回调
+  radioChange(e) {
+    console.log(e.detail.value)
+    var that = this
+    if (e.detail.value == "male") {
+      that.setData({
+        'personData.sex': "男"
+      })
+    } else if (e.detail.value == "female") {
+      that.setData({
+        'personData.sex': "女"
+      })
+    }
+  },
 
+  //姓名输入框回调
+  nameTap(e) {
+    this.setData({
+      'personData.name': e.detail.value
+    })
+  },
+
+  //电话输入框 回调
+  phoneTap(e) {
+    this.setData({
+      'personData.phone': e.detail.value
+    })
+  },
+
+  //简述输入框 输入回调
+  overviewTap(e) {
+    this.setData({
+      'personData.overview': e.detail.value
+    })
   },
 
   /**
@@ -40,9 +78,41 @@ Page({
   onLoad: function (options) {
 
     console.log("apply onLOad ok")
-
+    var that = this
     this.setData({
-      personData: dataObj.personData
+      personData: wx.getStorageSync('userData')
+    }) 
+    try {
+      var value = wx.getStorageSync('userData')
+      if (value.sex == '男') {
+        that.setData({
+          items: [
+            { name: 'male', value: '男', checked: true },
+            { name: 'female', value: '女', checked: false},
+          ]
+        })
+
+      } else if (value.sex == '女') {
+        that.setData({
+          items: [
+            { name: 'male', value: '男'},
+            { name: 'female', value: '女', checked: true },
+          ]
+        })
+
+      } 
+    } catch (e) {
+      throw (e)
+    }
+  },
+
+  //提交申请按钮回调
+  submitTap(e) {
+    var that = this
+
+    wx.setStorageSync('userData', that.data.personData)
+    db.collection('userInfo').add({
+      data: that.data.personData
     })
   },
 

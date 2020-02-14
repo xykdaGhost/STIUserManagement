@@ -49,8 +49,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/index/index",
-					"pathName": "pages/index/index",
+					"name": "pages/apply/apply",
+					"pathName": "pages/apply/apply",
 					"query": "",
 					"scene": null
 				}

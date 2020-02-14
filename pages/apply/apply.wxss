@@ -3,6 +3,7 @@ page {
   margin-left: 30rpx;
   margin-right: 30rpx;
   width: auto;
+  background: linear-gradient(#ceedff, #a3feff)
 
 }
 
@@ -19,7 +20,7 @@ page {
 .name input {
   width: 400rpx;
   height: 50rpx;
-  border:1px solid #efefef;
+  border:2px solid #696969;
   border-radius: 5rpx;
   padding-left: 20rpx;
   margin-left: 26rpx;
@@ -30,7 +31,7 @@ page {
 /* 性别栏 */
 .sex {
   height: 50rpx;
-  margin-top: 25rpx;
+  margin-top: 40rpx;
   display: flex;
 }
 
@@ -38,18 +39,15 @@ page {
   transform: scale(0.8);
 }
 
-
-.radio-male {
-  margin-left: 20rpx;
+.sex radio-group text {
+  margin-left: 10rpx;
+  margin-right: 120rpx;
 }
 
-.radio-female {
-  margin-left: 80rpx;
-}
 
 /* 院系栏 */
 .department{
-  margin-top: 25rpx;
+  margin-top: 40rpx;
 
   display: flex;
 }
@@ -59,7 +57,7 @@ page {
   margin-left: 30rpx;
   width: 57%;
   height: 54rpx;
-  border:1px solid #efefef;
+  border:2px solid #696969;
   border-radius: 8rpx;
   display: flex;
   align-items: center;
@@ -81,36 +79,37 @@ page {
 }
 .option_box{
   position: absolute;
-  margin-top: 119.5rpx;
+  margin-top: 150rpx;
   margin-left: 30rpx;
   top: 50rpx;
   width: 50%;
-  border:1px solid #efefef;
+  border: 2px solid #696969;
   box-sizing: border-box;
-  height: 0;
+  height: 200rpx;
   overflow-y: auto;
   border-top: 0;
   background: #fff;
   transition: height 0.3s;
+  z-index: 100;
 }
 .option{
   display: block;
   line-height: 40rpx;
   font-size: 30rpx;
-  border-bottom: 1px solid #efefef;
+  border-bottom: 2px solid #696969;
   padding: 10rpx;
 }
 
 /* 电话栏 */
 
 .phone {
-  margin-top: 25rpx;
+  margin-top: 40rpx;
   display: flex;
 }
 
 .phone view {
   width: 400rpx;
-  border: 1px solid #efefef;
+  border: 2px solid #696969;
   border-radius: 5px;
   margin-left: 30rpx;
 }
@@ -126,32 +125,33 @@ page {
 /* 简述栏 */
 
 .overview {
-  margin-top: 25rpx;
+  margin-top: 40rpx;
   margin-right: 20rpx;
 }
 
 .overview view {
   margin-top: 20rpx;
   height: 400rpx;
-  border: 1px solid #efefef;
+  border: 2px solid #696969;
 }
 
 .overview view textarea {
   width: auto;
   padding: 15rpx;
   font-size: 32rpx;
-  height: 400rpx;
-}
-
-.submit {
-  margin-top: 200rpx;
-  width: full;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 370rpx;
 }
 
 .submit view {
-  width: 180rpx;
+  margin-top: 100rpx;
+  width: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
 
+}
+
+.submit view image {
+  width: 10%;
 }

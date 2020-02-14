@@ -1,13 +1,15 @@
 <!-- 姓名栏 -->
 <view class="name">姓名：
-  <input value="{{personData.name}}"></input>
+  <input value="{{personData.name}}" 
+    bindinput="nameTap" ></input>
 </view>
 
 <!-- 性别栏 -->
 <view class="sex">性别：
-  <radio-group>
-    <radio class="radio-male">男</radio>
-    <radio class="radio-female">女</radio>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+      <text>{{item.value}}</text>
+    </radio>
   </radio-group>
 </view> 
 
@@ -24,7 +26,7 @@
       <image class='select_img {{show&&"select_img_rotate"}}' src='/pictures/gobottom.png'></image>        
     </view>
     
-    <view class='option_box' style="height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;">
+    <view class='option_box' style="height:{{show?(selectData.length>4?240:selectData.length*60):0}}rpx;">
     
     <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
   
@@ -36,7 +38,8 @@
 <!-- 电话栏 -->
 <view class="phone">电话：
   <view>
-    <text>{{personData.phone}}</text>
+    <input value="{{personData.phone}}"
+      bindinput="phoneTap"></input>
   </view>
 </view>
 
@@ -44,13 +47,17 @@
 <view class="overview" >
     <text>申请理由:</text>
   <view>
-    <textarea maxlength="2000">{{personData.overview}}</textarea>
+    <textarea maxlength="2000"
+      value="{{personData.overview}}"
+      bindinput="overviewTap"></textarea>
   </view>
 </view>
 
 <!-- 提交栏 -->
 <view class="submit">
   <view>
-    <button>提交</button>
+    <image src="../../pictures/submit.png"
+      mode="widthFix"
+      bindtap="submitTap"></image>
   </view>
 </view>
