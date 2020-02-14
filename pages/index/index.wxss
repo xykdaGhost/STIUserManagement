@@ -1,6 +1,6 @@
 Page {
   text-align: center;
-  background: linear-gradient(#ceedff, #fffd39);
+  background: linear-gradient(#c2ccff, #fffd39);
 }
 
 .title {

@@ -31,19 +31,24 @@ Page({
 
   onClick: function() {
     
-    var lastId = wx.getStorageSync('userData').userId
+    var that = this
+    if (that.data.username.length == 9) {
+      var sameId = false
+      if (wx.getStorageSync('userData').userId == that.data.username) {
+        sameId = true
+      }
 
-    var string = this.data.username
-    if (string.length == 9) {
-      
-      var cloudFlag = false
+      if (sameId == false) {
+        var dataObj = require("../../data/data.js")
+        wx.clearStorageSync();
+        dataObj.personData.userId = that.data.username
+        wx.setStorageSync('userData', dataObj.personData)
+      }
 
       db.collection('userInfo').where({
-        userId: string
+        userId: that.data.username
       }).get({
-        success: function (res) {
-          console.log(res.data[0])
-          cloudFlag = true
+        success: function(res) {
           try {
             var value = wx.getStorageSync('userData')
             if (value) {
@@ -59,26 +64,6 @@ Page({
           }
         }
       })
-
-      try {
-        var value = wx.getStorageSync('userData')
-        if (value) {
-          value.userId = string
-          wx.setStorageSync('userData', value)
-        }
-      } catch (e) {
-        throw(e)
-      }
-
-      var that = this
-      if (that.data.username != lastId) {
-        console.log("clear")
-        var dataObj = require("../../data/data.js")
-        wx.clearStorageSync();
-        dataObj.personData.userId = that.data.username
-
-        wx.setStorageSync('userData', dataObj.personData)
-      }
 
       wx.redirectTo({
         url: '../apply/apply',
