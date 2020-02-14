@@ -1,25 +1,32 @@
 //index.js
 //获取应用实例
 const app = getApp()
-wx.cloud.init()
-const db = wx.cloud.database()
-
+var that
 Page({
+  data: {
+    username: "",
+    password: ""
+  },
+
+  usernameInput: function (e) {
+    var that = this
+    that.setData({
+      username: e.detail.value
+    })
+    console.log(e)
+  },
 
   onClick: function() {
-    console.log(data)
+    
     wx.redirectTo({
       url: '../apply/apply',
     })
+
+
   },
 
   onLoad: function (options) {
+    that = this
 
-    db.collection('userInfo').where({
-    }).get({
-      success: function(res) {
-        console.log(res)
-      }
-    })
   }
 })

@@ -6,13 +6,17 @@
 </image>
 
 <view class="usernameView">
-  <input class="username"
-    placeholder="请填写您的学号"></input>
+  <input  placeholder="请填写您的学号"
+    focus="true"
+    bindinput="usernameInput"></input>
 </view>
 
 <view class="passwordView">
-  <input class="password"
-    placeholder="请填写您的密码"></input>
+  <input  password
+    type="text"
+    placeholder="请填写您的密码"
+    focus="true"
+    bindinput="passwordInput"></input>
 </view>
 
 
