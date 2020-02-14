@@ -3,7 +3,8 @@ var personData = {
   sex: null,
   department: "",
   phone: "1364",
-  overview: ""
+  overview: "",
+  userId: ""
 }
 
 module.exports = {

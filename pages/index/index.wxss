@@ -23,6 +23,7 @@ Page {
 
 .usernameView {
   display: flex;
+  flex-direction: row;
   height: 65rpx;
   margin-top: 100rpx;
   margin-left: 90rpx;
@@ -32,13 +33,20 @@ Page {
   background-color: #ceedff;
 }
 
+.usernameView text {
+  height: 65rpx;
+  font-size:  42rpx;
+  margin-left: 30px;
+}
+
 .usernameView input {
   height: 65rpx;
   font-size: 42rpx;
+  margin-right: 40rpx;
   width: 100%;
 }
 
-.passwordView {
+/* .passwordView {
   display: flex;
   height: 65rpx;
   margin-top: 40rpx;
@@ -53,4 +61,4 @@ Page {
   height: 65rpx;
   font-size: 42rpx;
   width: 100%;
-}
+} */
