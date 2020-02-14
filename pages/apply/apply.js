@@ -110,10 +110,33 @@ Page({
   submitTap(e) {
     var that = this
 
-    wx.setStorageSync('userData', that.data.personData)
-    db.collection('userInfo').add({
-      data: that.data.personData
-    })
+    var check = true
+
+    if (that.data.personData.phone.length != 11) {
+      wx.showToast({
+        title: '电话填写不正确',
+        image: '../../pictures/wrong.png',
+      })
+      check = false
+    }
+
+    if (check) {
+      wx.setStorageSync('userData', that.data.personData)
+      db.collection('userInfo').add({
+        data: that.data.personData
+      })
+
+      db.collection('userInfo').where({
+        userId: that.data.userId
+      }).get({
+        success: function (res) {
+          wx.showToast({
+            title: '提交成功',
+          })
+        }
+      })
+
+    }
   },
 
   /**

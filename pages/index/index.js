@@ -30,6 +30,9 @@ Page({
   // },  
 
   onClick: function() {
+    
+    var lastId = wx.getStorageSync('userData').userId
+
     var string = this.data.username
     if (string.length == 9) {
       
@@ -67,7 +70,15 @@ Page({
         throw(e)
       }
 
+      var that = this
+      if (that.data.username != lastId) {
+        console.log("clear")
+        var dataObj = require("../../data/data.js")
+        wx.clearStorageSync();
+        dataObj.personData.userId = that.data.username
 
+        wx.setStorageSync('userData', dataObj.personData)
+      }
 
       wx.redirectTo({
         url: '../apply/apply',
