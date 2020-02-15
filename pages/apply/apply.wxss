@@ -17,13 +17,18 @@ page {
   align-items: center;
 }
 
-.name input {
-  width: 400rpx;
+.name view {
+  width: 385rpx;
   height: 50rpx;
   border:2px solid #696969;
-  border-radius: 5rpx;
+  border-radius: 5px;
   padding-left: 20rpx;
   margin-left: 26rpx;
+}
+
+.name view input {
+
+
   font-size: 32rpx;
 }
 
@@ -109,12 +114,13 @@ page {
 
 .phone view {
   width: 400rpx;
+  height: 50rpx;
   border: 2px solid #696969;
   border-radius: 5px;
   margin-left: 30rpx;
 }
 
-.phone text {
+.phone input {
 
   align-content: center;
   font-size: 32rpx;

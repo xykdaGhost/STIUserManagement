@@ -10,10 +10,16 @@ App({
 
     var storageData = wx.getStorageSync('userData');
     if (!storageData) {
-      var dataObj = require("data/data.js")
       wx.clearStorageSync();
-      wx.setStorageSync('userData', dataObj.personData)
-
+      wx.setStorageSync('name', "")
+      wx.setStorageSync('sex', null)
+      wx.setStorageSync('department', "")
+      wx.setStorageSync('phone', "")
+      wx.setStorageSync('overview', "")
+      wx.setStorageSync('userId', "")
+      wx.setStorageSync('level', 0)
+      wx.setStorageSync('isCloud', false)
+      wx.setStorageSync('cloudId', "")
     }
 
 

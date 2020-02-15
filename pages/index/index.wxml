@@ -10,7 +10,8 @@
   <input  placeholder="请填写您的学号"
     type="number"
     focus="true"
-    bindinput="usernameInput"></input>
+    bindinput="usernameInput"
+    value="{{username}}"></input>
 </view>
 
 <!-- <view class="passwordView">

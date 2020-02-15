@@ -32,9 +32,12 @@ Page({
   onClick: function() {
     
     var that = this
+
+
+
     if (that.data.username.length == 9) {
       var sameId = false
-      if (wx.getStorageSync('userData').userId == that.data.username) {
+      if (wx.getStorageSync('name') == that.data.username) {
         sameId = true
       }
 
@@ -49,6 +52,7 @@ Page({
         userId: that.data.username
       }).get({
         success: function(res) {
+          console.log(res)
           try {
             var value = wx.getStorageSync('userData')
             if (value) {
@@ -57,6 +61,9 @@ Page({
               value.overview = res.data[0].overview
               value.phone = res.data[0].phone
               value.sex = res.data[0].sex
+              value.level = res.data[0].level
+              value.isCloud = res.data[0].isCloud
+              value.cloudId = res.data[0]._id
               wx.setStorageSync('userData', value)
             }
           } catch (e) {
@@ -65,9 +72,21 @@ Page({
         }
       })
 
-      wx.redirectTo({
-        url: '../apply/apply',
+      wx.showToast({
+        title: 'Loading',
+        icon: 'loading',
+        duration: 100
       })
+
+      //跳转延时执行
+      setTimeout(function () {
+        wx.redirectTo({
+          url: '../apply/apply',
+        })
+      }, 300)
+      
+
+
 
     } else {
       wx.showToast({
@@ -79,6 +98,8 @@ Page({
   },
 
   onLoad: function (options) {
-
+    that.setData ({
+      username: wx.getStorageSync('userId')
+    })
   }
 })

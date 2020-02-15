@@ -1,7 +1,10 @@
 <!-- 姓名栏 -->
 <view class="name">姓名：
-  <input value="{{personData.name}}" 
-    bindinput="nameTap" ></input>
+  <view>
+    <input value="{{personData.name}}" 
+      bindinput="nameTap" >
+    </input>
+  </view>
 </view>
 
 <!-- 性别栏 -->
@@ -39,7 +42,9 @@
 <view class="phone">电话：
   <view>
     <input value="{{personData.phone}}"
-      bindinput="phoneTap"></input>
+      bindinput="phoneTap"
+      type="number" >
+    </input>
   </view>
 </view>
 
@@ -49,7 +54,9 @@
   <view>
     <textarea maxlength="2000"
       value="{{personData.overview}}"
-      bindinput="overviewTap"></textarea>
+      bindinput="overviewTap"
+      placeholder="谈谈你为什么想加入电工基地，字数不多于200字">
+    </textarea>
   </view>
 </view>
 

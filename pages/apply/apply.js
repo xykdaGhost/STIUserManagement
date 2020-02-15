@@ -109,7 +109,6 @@ Page({
   //提交申请按钮回调
   submitTap(e) {
     var that = this
-
     var check = true
 
     if (that.data.personData.phone.length != 11) {
@@ -120,22 +119,60 @@ Page({
       check = false
     }
 
+    if (that.data.personData.sex == null) {
+      wx.showToast({
+        title: '未选择性别',
+        image: '../../pictures/wrong.png',
+      })
+      check = false
+    }
+
+    if (that.data.personData.department == "") {
+      wx.showToast({
+        title: '未选择院系',
+        image: '../../pictures/wrong.png',
+      })
+      check = false
+    }
+
+
     if (check) {
+
+      if (!that.data.personData.isCloud) {
+        that.setData({
+          'personData.isCloud': true
+        })       
+        db.collection('userInfo').add({
+          data: that.data.personData
+        })
+
+        //回验 觉得没必要 暂时移除
+        // db.collection('userInfo').where({
+        //   userId: that.data.userId
+        // }).get({
+        //   success: function (res) {
+        //     console.log(res)
+        //     wx.showModal({
+        //       title: '提交成功',
+        //       content: res.detail.value,
+        //     })
+        //   }
+        // })
+      } else {
+        db.collection('userInfo').doc(that.data.personData.cloudId).set({
+          data: that.data.personData
+        })
+      }
       wx.setStorageSync('userData', that.data.personData)
-      db.collection('userInfo').add({
-        data: that.data.personData
+      var temp = that.data.personData
+      wx.showModal({
+        title: '申请成功',
+        content:  '姓名: ' +  temp.name + '\n' +
+                  '性别: ' + temp.sex + '\n' +
+                  '院系: ' + that.data.selectData[that.data.personData.department] + '\n' +
+                  '电话: ' + temp.phone + '\n',
+        showCancel: false,
       })
-
-      db.collection('userInfo').where({
-        userId: that.data.userId
-      }).get({
-        success: function (res) {
-          wx.showToast({
-            title: '提交成功',
-          })
-        }
-      })
-
     }
   },
 
