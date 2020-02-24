@@ -8,23 +8,12 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    var storageData = wx.getStorageSync('userData');
+    // 缓存，removed
+    var storageData = wx.getStorageSync('userId');
     if (!storageData) {
       wx.clearStorageSync();
-      wx.setStorageSync('name', "")
-      wx.setStorageSync('sex', null)
-      wx.setStorageSync('department', "")
-      wx.setStorageSync('phone', "")
-      wx.setStorageSync('overview', "")
       wx.setStorageSync('userId', "")
-      wx.setStorageSync('level', 0)
-      wx.setStorageSync('isCloud', false)
-      wx.setStorageSync('cloudId', "")
     }
-
-
-
-
 
     // 登录
     wx.login({

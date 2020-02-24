@@ -9,14 +9,14 @@ const db = wx.cloud.database()
 var that
 Page({
   data: {
-    username: "",
+    userId: "",
     password: ""
   },
 
   usernameInput: function (e) {
     var that = this
     that.setData({
-      username: e.detail.value
+      userId: e.detail.value
     })
   },
 
@@ -29,53 +29,18 @@ Page({
   //   })
   // },  
 
-  onClick: function() {
-    
+  onClick: function () {
+
     var that = this
-
-
-
-    if (that.data.username.length == 9) {
-      var sameId = false
-      if (wx.getStorageSync('name') == that.data.username) {
-        sameId = true
-      }
-
-      if (sameId == false) {
-        var dataObj = require("../../data/data.js")
-        wx.clearStorageSync();
-        dataObj.personData.userId = that.data.username
-        wx.setStorageSync('userData', dataObj.personData)
-      }
-
-      db.collection('userInfo').where({
-        userId: that.data.username
-      }).get({
-        success: function(res) {
-          console.log(res)
-          try {
-            var value = wx.getStorageSync('userData')
-            if (value) {
-              value.name = res.data[0].name
-              value.department = res.data[0].department
-              value.overview = res.data[0].overview
-              value.phone = res.data[0].phone
-              value.sex = res.data[0].sex
-              value.level = res.data[0].level
-              value.isCloud = res.data[0].isCloud
-              value.cloudId = res.data[0]._id
-              wx.setStorageSync('userData', value)
-            }
-          } catch (e) {
-            throw (e)
-          }
-        }
-      })
+    //判断学号是否为9位
+    if (that.data.userId.length == 9) {
+      
+      wx.setStorageSync('userId', that.data.userId)
 
       wx.showToast({
         title: 'Loading',
         icon: 'loading',
-        duration: 100
+        duration: 300
       })
 
       //跳转延时执行
@@ -83,11 +48,7 @@ Page({
         wx.redirectTo({
           url: '../apply/apply',
         })
-      }, 300)
-      
-
-
-
+      }, 15)
     } else {
       wx.showToast({
         title: '学号不正确',
@@ -98,8 +59,6 @@ Page({
   },
 
   onLoad: function (options) {
-    that.setData ({
-      username: wx.getStorageSync('userId')
-    })
+
   }
 })
