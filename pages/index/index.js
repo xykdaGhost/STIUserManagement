@@ -56,7 +56,7 @@ Page({
             dataObj = res.data[0]
             console.log(dataObj)
             wx.setStorageSync('personData', dataObj)
-            console.log(res + "123")
+            // console.log(res + "123")
           }
         }
       })
@@ -77,7 +77,7 @@ Page({
         wx.redirectTo({
           url: '../apply/apply',
         })
-      }, 100)
+      }, 300)
     } else {
       wx.showToast({
         title: '学号不正确',

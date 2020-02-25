@@ -82,7 +82,6 @@ Page({
 
     console.log(wx.getStorageSync('personData'))
     this.setData({
-      
       personData: wx.getStorageSync('personData')
     }) 
     
@@ -159,9 +158,16 @@ Page({
         })
 
       } else {
-        dataObj = that.data.personData
-        db.collection('userInfo').doc(that.data.personData._id).set({
-          data: dataObj
+        // console.log(cloudId)
+        var dataObj = that.data.personData
+        db.collection('userInfo').doc(that.data.personData._id).update({
+          data: {
+            department: dataObj.department,
+            name: dataObj.name,
+            overview: dataObj.overview,
+            phone: dataObj.phone,
+            sex: dataObj.sex
+          }
         })
         wx.setStorageSync('personData', that.data.personData)
       }
