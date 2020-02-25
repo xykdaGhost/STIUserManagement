@@ -6,8 +6,7 @@ var personData = {
   overview: "",
   userId: "",
   level: 0,
-  isCloud: false,
-  cloudId: ""
+  _id: ""
 }
 
 /*

@@ -79,12 +79,16 @@ Page({
 
     console.log("apply onLOad ok")
     var that = this
+
+    console.log(wx.getStorageSync('personData'))
     this.setData({
-      personData: wx.getStorageSync('userData')
+      
+      personData: wx.getStorageSync('personData')
     }) 
+    
     try {
-      var value = wx.getStorageSync('userData')
-      if (value.sex == '男') {
+      var value = that.data.personData.sex
+      if (value == '男') {
         that.setData({
           items: [
             { name: 'male', value: '男', checked: true },
@@ -92,7 +96,7 @@ Page({
           ]
         })
 
-      } else if (value.sex == '女') {
+      } else if (value == '女') {
         that.setData({
           items: [
             { name: 'male', value: '男'},
@@ -138,32 +142,31 @@ Page({
 
     if (check) {
 
-      if (!that.data.personData.isCloud) {
-        that.setData({
-          'personData.isCloud': true
-        })       
+      if (that.data.personData._id == "") {    
         db.collection('userInfo').add({
           data: that.data.personData
         })
+        db.collection('userInfo').where({
+          userId: that.data.personData.userId
+        }).get({
+          success: function(res) {
 
-        //回验 觉得没必要 暂时移除
-        // db.collection('userInfo').where({
-        //   userId: that.data.userId
-        // }).get({
-        //   success: function (res) {
-        //     console.log(res)
-        //     wx.showModal({
-        //       title: '提交成功',
-        //       content: res.detail.value,
-        //     })
-        //   }
-        // })
-      } else {
-        db.collection('userInfo').doc(that.data.personData.cloudId).set({
-          data: that.data.personData
+            that.setData({
+              'personData._id' : res.data[0]._id
+            })
+            wx.setStorageSync('personData', that.data.personData)
+          }
         })
+
+      } else {
+        dataObj = that.data.personData
+        db.collection('userInfo').doc(that.data.personData._id).set({
+          data: dataObj
+        })
+        wx.setStorageSync('personData', that.data.personData)
       }
-      wx.setStorageSync('userData', that.data.personData)
+      console.log(that.data.personData)
+
       var temp = that.data.personData
       wx.showModal({
         title: '申请成功',
@@ -173,6 +176,7 @@ Page({
                   '电话: ' + temp.phone + '\n',
         showCancel: false,
       })
+      
     }
   },
 

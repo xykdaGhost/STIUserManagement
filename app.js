@@ -9,10 +9,11 @@ App({
     wx.setStorageSync('logs', logs)
 
     // 缓存，removed
-    var storageData = wx.getStorageSync('userId');
+    var storageData = wx.getStorageSync('personData');
     if (!storageData) {
       wx.clearStorageSync();
-      wx.setStorageSync('userId', "")
+      var dataObj = require('data/data.js').personData
+      wx.setStorageSync('personData', dataObj)
     }
 
     // 登录
