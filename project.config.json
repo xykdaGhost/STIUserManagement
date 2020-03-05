@@ -53,6 +53,13 @@
 					"pathName": "pages/apply/apply",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/resume/resume",
+					"pathName": "pages/resume/resume",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

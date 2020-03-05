@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/apply/apply"
+    "pages/apply/apply",
+    "pages/resume/resume"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#c2ccff",
+    "navigationBarBackgroundColor": "#e4e8ff",
     "navigationBarTitleText": "STI  用户系统",
     "navigationBarTextStyle": "black"
   },

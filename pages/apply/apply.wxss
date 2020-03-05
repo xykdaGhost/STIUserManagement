@@ -3,8 +3,7 @@ page {
   margin-left: 30rpx;
   margin-right: 30rpx;
   width: auto;
-  background: linear-gradient(#c2ccff, #a3feff)
-
+  background: linear-gradient(#e4e8ff, #a3feff)
 }
 
 

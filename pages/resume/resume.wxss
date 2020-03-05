@@ -1,0 +1,37 @@
+/* pages/resume/resume.wxss */
+
+page {
+  background: linear-gradient(#e4e8ff, #80858531);
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-bottom: 20rpx;
+  width: auto;
+  height: wuto;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.department {
+  width: 240rpx;
+  height: 50rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.department image {
+  height: 35rpx;
+  width: 35rpx;
+  justify-self: center;
+  align-self: center;
+  margin-right: 20rpx;
+}
+
+.department text {
+  font-size: 36rpx;
+
+}

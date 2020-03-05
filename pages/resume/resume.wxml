@@ -1,0 +1,17 @@
+<view
+  class="resumePage">
+
+  <view
+    class="head">
+
+    <view
+      class="department">
+      <image
+        src="../../pictures/choose.png"
+        mode="aspectFill">
+      </image>
+      <text>光电学院</text>
+    </view>
+  </view>
+
+</view>
